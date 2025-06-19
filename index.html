@@ -4,69 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gupta Consultancy Services (GCS) - Your Trusted Partner in Digital Transformation</title>
+    <!-- Tailwind CSS CDN for rapid styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for a modern and clean typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for service icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Base styles for the body using Inter font and a light background */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light Gray */
-            scroll-behavior: smooth; /* Smooth scrolling for nav links */
+            background-color: #f8fafc; /* Light Gray from Tailwind's default color palette */
+            scroll-behavior: smooth; /* Enables smooth scrolling when clicking navigation links */
         }
+        /* Styling for the hero section with a vibrant gradient background */
         .hero-section {
-            background: linear-gradient(135deg, #4c51bf, #667eea); /* Purple gradient */
-            color: white;
-            padding: 8rem 0;
+            background: linear-gradient(135deg, #4c51bf, #667eea); /* A blend of darker and lighter purple */
+            color: white; /* White text for contrast */
+            padding: 8rem 0; /* Ample vertical padding */
         }
+        /* Styling for main section headings */
         .section-heading {
-            color: #1a202c; /* Dark text */
+            color: #1a202c; /* Dark text for readability */
         }
+        /* Service card styling with transitions for interactive effects */
         .service-card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
         }
+        /* Hover effects for service cards: subtle lift and shadow */
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4x 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px); /* Moves the card up slightly */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow */
         }
-        /* Custom scrollbar for better aesthetics */
+        /* Custom scrollbar for improved aesthetics across browsers */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 8px; /* Width of the scrollbar */
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9; /* Light track */
-            border-radius: 10px;
+            background: #f1f5f9; /* Light track color */
+            border-radius: 10px; /* Rounded corners for the track */
         }
         ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; /* Gray thumb */
-            border-radius: 10px;
+            background: #cbd5e1; /* Gray thumb color */
+            border-radius: 10px; /* Rounded corners for the thumb */
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8; /* Darker gray on hover */
         }
-        /* Style for the Google Form iframe container */
+        /* Container for the Google Form iframe to ensure proper sizing and styling */
         .google-form-container {
-            max-width: 700px; /* Adjust as needed */
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            overflow: hidden; /* Hide scrollbars if iframe is larger than container */
+            max-width: 700px; /* Maximum width for the form container */
+            margin: 0 auto; /* Center the container horizontally */
+            background-color: white; /* White background for the form area */
+            padding: 20px; /* Inner padding */
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+            overflow: hidden; /* Hides any overflow from the iframe */
         }
         .google-form-container iframe {
-            width: 100%;
-            height: 700px; /* Adjust height as necessary to show entire form */
-            border: none;
+            width: 100%; /* Makes the iframe fill its container width */
+            height: 1590px; /* Specific height for the Google Form */
+            border: none; /* Removes default iframe border */
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Section: Fixed at the top, includes logo and navigation -->
     <header class="bg-white shadow-sm py-4 fixed w-full z-10">
         <nav class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo area: Uses the GCS Gupta logo. Assumes it's in the root folder -->
             <a href="#hero" class="text-2xl font-bold text-gray-800 rounded-lg p-2 hover:bg-gray-100 transition duration-300">
-                <img src="gcs-gupta-logo.jpg" alt="GCS Logo" class="h-10 rounded-lg">
+                <!-- IMPORTANT: The 'src' is now directly to 'gcs-gupta-logo.png' as it's in the root -->
+                <img src="gcs-gupta-logo.png" alt="GCS Logo" class="h-10 rounded-lg">
             </a>
+            <!-- Navigation links with smooth scroll functionality -->
             <div class="space-x-6">
                 <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Services</a>
                 <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">About Us</a>
@@ -75,6 +87,7 @@
         </nav>
     </header>
 
+    <!-- Hero Section: Main welcoming area with a strong call to action -->
     <section id="hero" class="hero-section text-center">
         <div class="container mx-auto px-4">
             <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in">
@@ -89,11 +102,13 @@
         </div>
     </section>
 
+    <!-- Services Section: Details the core offerings of GCS -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold section-heading mb-12">Our Core Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+                <!-- Service Card: Web Development -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-laptop-code"></i>
@@ -102,6 +117,7 @@
                     <p class="text-gray-600">Building responsive, user-friendly, and high-performance websites tailored to your business needs, from engaging landing pages to complex web applications.</p>
                 </div>
 
+                <!-- Service Card: App Development -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-mobile-alt"></i>
@@ -110,6 +126,7 @@
                     <p class="text-gray-600">Crafting intuitive and robust mobile applications for iOS and Android, ensuring a seamless experience for your users and a powerful presence for your brand.</p>
                 </div>
 
+                <!-- Service Card: Excel Automation -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-file-excel"></i>
@@ -118,6 +135,7 @@
                     <p class="text-gray-600">Streamlining your data processes and reporting in Excel with advanced formulas, VBA macros, and custom solutions to save time and reduce manual effort.</p>
                 </div>
 
+                <!-- Service Card: Data Analytics -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-line"></i>
@@ -126,6 +144,7 @@
                     <p class="text-gray-600">Uncovering hidden patterns, trends, and valuable insights from your raw data to support strategic decision-making and business growth.</p>
                 </div>
 
+                <!-- Service Card: Tableau Dashboards -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-bar"></i>
@@ -134,6 +153,7 @@
                     <p class="text-gray-600">Designing and developing interactive, intuitive, and visually compelling Tableau dashboards that empower users with actionable insights.</p>
                 </div>
 
+                <!-- Service Card: Power BI Dashboards -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-pie"></i>
@@ -142,6 +162,7 @@
                     <p class="text-gray-600">Creating dynamic and comprehensive Power BI reports and dashboards that integrate seamlessly with your Microsoft ecosystem for robust data analysis.</p>
                 </div>
 
+                <!-- Service Card: Other Data Visualization -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-database"></i>
@@ -154,44 +175,45 @@
         </div>
     </section>
 
+    <!-- About Us Section: Provides information about GCS with a more formal tone -->
     <section id="about" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-extrabold section-heading mb-12">About Gupta Consultancy Services (GCS)</h2>
+            <h2 class="text-4xl font-extrabold section-heading mb-12">About Us</h2>
             <div class="max-w-3xl mx-auto text-gray-700 leading-relaxed text-lg">
                 <p class="mb-6">
-                    GCS is a dynamic consultancy firm with 3.5+ years of hands-on experience in data analysis, risk management, and digital solution development. Our foundation is built on delivering tangible results and strategic insight.
+                    Gupta Consultancy Services (GCS) is a distinguished firm with over 3.5 years of expertise in comprehensive data analysis, robust risk management, and cutting-edge digital solution development. Our core philosophy is anchored in the delivery of demonstrable results and profound strategic insights.
                 </p>
                 <p class="mb-6">
-                    Our expertise lies in blending technical proficiency with a keen business acumen to drive significant outcomes. From developing risk-mitigating policies and identifying financial irregularities to enhancing customer conversion rates through innovative visualizations and automating complex data processes, we are dedicated to delivering solutions that save time, reduce costs, and empower informed decision-making.
+                    We specialize in seamlessly integrating advanced technical capabilities with astute business understanding to yield impactful outcomes. Our extensive experience encompasses the formulation of effective risk-mitigation policies, precise identification of financial anomalies, optimization of customer conversion through innovative data visualization, and the automation of intricate data processes. We are committed to providing sophisticated solutions that drive efficiency, reduce operational expenditures, and facilitate well-informed strategic decisions.
                 </p>
                 <p>
-                    We believe in transforming challenges into opportunities, leveraging data and technology to create impactful and sustainable growth for our clients.
+                    At GCS, we are dedicated to transforming complex challenges into strategic opportunities, leveraging the power of data and technology to foster sustainable growth and deliver substantial value for our esteemed clientele.
                 </p>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section: Includes a call to action and the embedded Google Form -->
     <section id="contact" class="py-16 bg-indigo-700 text-white text-center">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-extrabold mb-8">Ready to Start Your Project?</h2>
             <p class="text-xl font-light mb-10 max-w-2xl mx-auto opacity-90">
                 Let's discuss how we can help you achieve your business goals with our expert web development, app development, and data analytics services.
             </p>
+            <!-- Google Form Embed: Updated with your provided URL and height -->
             <div class="google-form-container">
-                 <iframe 
-                     src="https://docs.google.com/forms/d/e/1FAIpQLSe-FaAi7BpN8UjUDa2emGb4FGJbe41hQ5dn2miOdZbiCPVc1Q/viewform?embedded=true" 
-    		     width="100%" 
-                     height="1590" 
-                     frameborder="0" 
-                     marginheight="0" 
-                     marginwidth="0">Loading…</iframe>
-                <p class="text-xs text-indigo-200 mt-4">
-                    *Please replace "YOUR_GOOGLE_FORM_ID" in the iframe src with your actual Google Form embed URL. Adjust height if needed.
-                </p>
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSe-FaAi7BpN8UjUDa2emGb4FGjbe41hQ5dn2miOdZbiCPVc1Q/viewform?embedded=true" 
+                    width="100%" 
+                    height="1590" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">Loading…</iframe>
             </div>
         </div>
     </section>
 
+    <!-- Footer Section: Copyright and contact information -->
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-4 text-center text-sm">
             <p>&copy; 2025 Gupta Consultancy Services (GCS). All rights reserved.</p>
@@ -202,12 +224,13 @@
         </div>
     </footer>
 
+    <!-- JavaScript for smooth scrolling when clicking navigation links -->
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+                e.preventDefault(); // Prevent default anchor click behavior
 
+                // Scroll to the target section smoothly
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
