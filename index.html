@@ -51,20 +51,52 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8; /* Darker gray on hover */
         }
-        /* Container for the Google Form iframe to ensure proper sizing and styling */
-        .google-form-container {
-            max-width: 700px; /* Maximum width for the form container */
-            margin: 0 auto; /* Center the container horizontally */
-            background-color: white; /* White background for the form area */
-            padding: 20px; /* Inner padding */
-            border-radius: 8px; /* Slightly rounded corners */
+        /* Styling for the new custom contact form */
+        .contact-form-container {
+            max-width: 700px; /* Max width for the form itself */
+            margin: 0 auto; /* Center the form */
+            background-color: white; /* White background */
+            padding: 2.5rem; /* Padding inside the form */
+            border-radius: 0.5rem; /* Rounded corners */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
-            overflow: hidden; /* Hides any overflow from the iframe */
         }
-        .google-form-container iframe {
-            width: 100%; /* Makes the iframe fill its container width */
-            height: 1590px; /* Specific height for the Google Form */
-            border: none; /* Removes default iframe border */
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container textarea {
+            width: 100%; /* Full width inputs */
+            padding: 0.75rem; /* Padding inside inputs */
+            border: 1px solid #e2e8f0; /* Light gray border */
+            border-radius: 0.375rem; /* Slightly rounded corners for inputs */
+            margin-bottom: 1rem; /* Space below inputs */
+            background-color: #f8fafc; /* Light background for inputs */
+            font-size: 1rem; /* Standard font size */
+            color: #4a5568; /* Dark gray text */
+            outline: none; /* Remove outline on focus */
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .contact-form-container input[type="text"]:focus,
+        .contact-form-container input[type="email"]:focus,
+        .contact-form-container textarea:focus {
+            border-color: #6366f1; /* Indigo border on focus */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Light indigo shadow on focus */
+        }
+        .contact-form-container textarea {
+            min-height: 120px; /* Minimum height for textarea */
+            resize: vertical; /* Allow vertical resizing */
+        }
+        .contact-form-container button {
+            display: inline-block;
+            background-color: #4f46e5; /* Indigo button background */
+            color: white; /* White text */
+            font-weight: 700; /* Bold font */
+            padding: 0.75rem 2rem; /* Padding for button */
+            border-radius: 9999px; /* Fully rounded button */
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+        }
+        .contact-form-container button:hover {
+            background-color: #4338ca; /* Darker indigo on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
         }
     </style>
 </head>
@@ -75,7 +107,7 @@
         <nav class="container mx-auto px-4 flex justify-between items-center">
             <!-- Logo area: Uses the GCS Gupta logo. Assumes it's in the root folder -->
             <a href="#hero" class="text-2xl font-bold text-gray-800 rounded-lg p-2 hover:bg-gray-100 transition duration-300">
-                <!-- LOGO SIZE ADJUSTED HERE: Using h-12 w-auto for better header fit -->
+                <!-- LOGO SIZE: Using h-12 w-auto for balanced header fit -->
                 <img src="gcs-gupta-logo.png" alt="GCS Logo" class="h-12 w-auto rounded-lg">
             </a>
             <!-- Navigation links with smooth scroll functionality -->
@@ -193,23 +225,42 @@
         </div>
     </section>
 
-    <!-- Contact Section: Includes a call to action and the embedded Google Form -->
+    <!-- Contact Section: Includes a call to action and the new custom contact form -->
     <section id="contact" class="py-16 bg-indigo-700 text-white text-center">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-extrabold mb-8">Ready to Start Your Project?</h2>
             <p class="text-xl font-light mb-10 max-w-2xl mx-auto opacity-90">
                 Let's discuss how we can help you achieve your business goals with our expert web development, app development, and data analytics services.
             </p>
-            <!-- Google Form Embed: Updated with your provided URL and height -->
-            <div class="google-form-container">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSe-FaAi7BpN8UjUDa2emGb4FGjbe41hQ5dn2miOdZbiCPVc1Q/viewform?embedded=true" 
-                    width="100%" 
-                    height="1590" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0">Loading…</iframe>
+            <!-- Custom Contact Form: Replaces the Google Form iframe -->
+            <div class="contact-form-container text-left">
+                <form action="https://formspree.io/f/xvgrbzeg" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required
+                               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="_replyto" placeholder="your@email.com" required
+                               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your message here..." required
+                                  class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
             </div>
+            <p class="text-xs text-indigo-200 mt-4">
+                *Please visit Formspree.io (or a similar service) to get your unique form endpoint and replace "YOUR_FORMSPREE_ENDPOINT_HERE" in the HTML.
+            </p>
         </div>
     </section>
 
