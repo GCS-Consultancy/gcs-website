@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gupta Consultancy Services (GCS) - Your Trusted Partner in Digital Transformation</title>
-    <!-- Tailwind CSS CDN for rapid styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter for a modern and clean typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for service icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Base styles for the body using Inter font and a light background */
@@ -98,28 +95,76 @@
             background-color: #4338ca; /* Darker indigo on hover */
             transform: translateY(-2px); /* Slight lift on hover */
         }
+
+        /* --- NEW CSS FOR TEAM SECTION --- */
+        #our-team {
+            padding: 6rem 1rem; /* Consistent padding with other sections */
+            background-color: #f1f5f9; /* A slightly different light gray for variety */
+            text-align: center;
+        }
+
+        #our-team .section-heading {
+            margin-bottom: 3rem; /* Space below heading */
+        }
+
+        .team-member-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            padding: 2.5rem; /* Ample padding inside card */
+            margin: 1.5rem auto; /* Center individual cards */
+            max-width: 400px; /* Max width for a single team member card */
+            text-align: center; /* Center content within the card */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid #e2e8f0; /* Light border */
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+        }
+
+        .team-member-card h3 {
+            font-size: 2em; /* Larger name */
+            font-weight: 700; /* Bold name */
+            color: #1a202c; /* Dark text */
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member-card p {
+            font-size: 1.1em;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .team-member-card p strong {
+            color: #333;
+        }
+
+        .team-member-card .description {
+            font-size: 1em;
+            color: #64748b; /* Slightly lighter gray for description */
+            margin-top: 1rem;
+        }
+        /* --- END NEW CSS --- */
     </style>
 </head>
 <body>
 
-    <!-- Header Section: Fixed at the top, includes logo and navigation -->
     <header class="bg-white shadow-sm py-4 fixed w-full z-10">
         <nav class="container mx-auto px-4 flex justify-between items-center">
-            <!-- Logo area: Uses the GCS Gupta logo. Assumes it's in the root folder -->
             <a href="#hero" class="text-2xl font-bold text-gray-800 rounded-lg p-2 hover:bg-gray-100 transition duration-300">
-                <!-- LOGO SIZE: Using h-12 w-auto for balanced header fit -->
                 <img src="gcs-gupta-logo.png" alt="GCS Logo" class="h-12 w-auto rounded-lg">
             </a>
-            <!-- Navigation links with smooth scroll functionality -->
             <div class="space-x-6">
                 <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Services</a>
                 <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">About Us</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Contact</a>
+                <a href="#our-team" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Our Team</a> <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Contact</a>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section: Main welcoming area with a strong call to action -->
     <section id="hero" class="hero-section text-center">
         <div class="container mx-auto px-4">
             <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in">
@@ -134,13 +179,11 @@
         </div>
     </section>
 
-    <!-- Services Section: Details the core offerings of GCS -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold section-heading mb-12">Our Core Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Service Card: Web Development -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-laptop-code"></i>
@@ -149,7 +192,6 @@
                     <p class="text-gray-600">Building responsive, user-friendly, and high-performance websites tailored to your business needs, from engaging landing pages to complex web applications.</p>
                 </div>
 
-                <!-- Service Card: App Development -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-mobile-alt"></i>
@@ -158,7 +200,6 @@
                     <p class="text-gray-600">Crafting intuitive and robust mobile applications for iOS and Android, ensuring a seamless experience for your users and a powerful presence for your brand.</p>
                 </div>
 
-                <!-- Service Card: Excel Automation -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-file-excel"></i>
@@ -167,7 +208,6 @@
                     <p class="text-gray-600">Streamlining your data processes and reporting in Excel with advanced formulas, VBA macros, and custom solutions to save time and reduce manual effort.</p>
                 </div>
 
-                <!-- Service Card: Data Analytics -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-line"></i>
@@ -176,7 +216,6 @@
                     <p class="text-gray-600">Uncovering hidden patterns, trends, and valuable insights from your raw data to support strategic decision-making and business growth.</p>
                 </div>
 
-                <!-- Service Card: Tableau Dashboards -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-bar"></i>
@@ -185,7 +224,6 @@
                     <p class="text-gray-600">Designing and developing interactive, intuitive, and visually compelling Tableau dashboards that empower users with actionable insights.</p>
                 </div>
 
-                <!-- Service Card: Power BI Dashboards -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-pie"></i>
@@ -194,7 +232,6 @@
                     <p class="text-gray-600">Creating dynamic and comprehensive Power BI reports and dashboards that integrate seamlessly with your Microsoft ecosystem for robust data analysis.</p>
                 </div>
 
-                <!-- Service Card: Other Data Visualization -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-database"></i>
@@ -207,7 +244,6 @@
         </div>
     </section>
 
-    <!-- About Us Section: Provides information about GCS with a more formal tone -->
     <section id="about" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold section-heading mb-12">About Us</h2>
@@ -225,14 +261,34 @@
         </div>
     </section>
 
-    <!-- Contact Section: Includes a call to action and the new custom contact form -->
+    ---
+
+    <section id="our-team">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold section-heading">Our Team</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+                Our dedicated team is at the heart of everything we do, bringing expertise and passion to every project. We're proud to highlight our talented developers who are instrumental in bringing your vision to life.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                <div class="team-member-card">
+                    <h3>Palak Goyal</h3>
+                    <p><strong>Title:</strong> Shopify Developer</p>
+                    <p><strong>Experience:</strong> 5+ Years</p>
+                    <p class="description">Palak is an invaluable member of our development team, bringing over five years of specialized experience as a Shopify Developer. Her deep understanding of the platform ensures that our e-commerce solutions are robust, user-friendly, and perfectly tailored to your business needs.</p>
+                </div>
+
+                </div>
+        </div>
+    </section>
+    ---
+
     <section id="contact" class="py-16 bg-indigo-700 text-white text-center">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-extrabold mb-8">Ready to Start Your Project?</h2>
             <p class="text-xl font-light mb-10 max-w-2xl mx-auto opacity-90">
                 Let's discuss how we can help you achieve your business goals with our expert web development, app development, and data analytics services.
             </p>
-            <!-- Custom Contact Form: Replaces the Google Form iframe -->
             <div class="contact-form-container text-left">
                 <form action="https://formspree.io/f/xvgrbzeg" method="POST">
                     <div class="mb-4">
@@ -264,7 +320,6 @@
         </div>
     </section>
 
-    <!-- Footer Section: Copyright and contact information -->
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-4 text-center text-sm">
             <p>&copy; 2025 Gupta Consultancy Services (GCS). All rights reserved.</p>
@@ -275,7 +330,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript for smooth scrolling when clicking navigation links -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
