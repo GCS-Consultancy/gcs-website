@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gupta Consultancy Services (GCS) - Your Trusted Partner in Digital Transformation</title>
+    <!-- Tailwind CSS CDN for rapid styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for a modern and clean typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for service icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Base styles for the body using Inter font and a light background */
@@ -148,23 +151,135 @@
             margin-top: 1rem;
         }
         /* --- END NEW CSS --- */
+
+        /* --- NEW CSS FOR PALAK'S REVIEWS SECTION (CAROUSEL) --- */
+        #palak-reviews {
+            padding: 6rem 1rem;
+            background-color: #e2e8f0; /* A slightly darker light gray for contrast */
+            text-align: center;
+            position: relative; /* Needed for absolute positioning of nav buttons */
+        }
+
+        #palak-reviews .section-heading {
+            margin-bottom: 3rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 800px; /* Max width for the carousel itself */
+            margin: 0 auto;
+            overflow: hidden; /* Hide reviews outside the current view */
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff; /* Background for the carousel area */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+            will-change: transform; /* Optimize for animation */
+        }
+
+        .review-card {
+            min-width: 100%; /* Each card takes full width of its parent (carousel-container) */
+            box-sizing: border-box; /* Include padding/border in width */
+            padding: 2.5rem;
+            text-align: left;
+            flex-shrink: 0; /* Prevent cards from shrinking */
+        }
+
+        .review-card h3 {
+            font-size: 1.6em; /* Project title */
+            font-weight: 600;
+            color: #334155; /* Darker gray for project title */
+            margin-bottom: 0.5rem;
+        }
+
+        .review-card .client-info {
+            font-size: 1em;
+            color: #64748b;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .review-card .review-text {
+            font-size: 1.05em;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+            z-index: 10; /* Ensure buttons are above content */
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-button.prev {
+            left: 1rem;
+        }
+
+        .carousel-button.next {
+            right: 1rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.75rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #cbd5e1; /* Light gray dot */
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .dot.active {
+            background-color: #4c51bf; /* Indigo active dot */
+            transform: scale(1.2);
+        }
+        /* --- END NEW CSS FOR PALAK'S REVIEWS SECTION (CAROUSEL) --- */
     </style>
 </head>
 <body>
 
+    <!-- Header Section: Fixed at the top, includes logo and navigation -->
     <header class="bg-white shadow-sm py-4 fixed w-full z-10">
         <nav class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo area: Uses the GCS Gupta logo. Assumes it's in the root folder -->
             <a href="#hero" class="text-2xl font-bold text-gray-800 rounded-lg p-2 hover:bg-gray-100 transition duration-300">
+                <!-- LOGO SIZE: Using h-12 w-auto for balanced header fit -->
                 <img src="gcs-gupta-logo.png" alt="GCS Logo" class="h-12 w-auto rounded-lg">
             </a>
+            <!-- Navigation links with smooth scroll functionality -->
             <div class="space-x-6">
                 <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Services</a>
                 <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">About Us</a>
-                <a href="#our-team" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Our Team</a> <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Contact</a>
+                <a href="#our-team" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Our Team</a>
+                <a href="#palak-reviews" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Palak's Reviews</a> <!-- New Nav Link -->
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Contact</a>
             </div>
         </nav>
     </header>
 
+    <!-- Hero Section: Main welcoming area with a strong call to action -->
     <section id="hero" class="hero-section text-center">
         <div class="container mx-auto px-4">
             <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in">
@@ -179,11 +294,13 @@
         </div>
     </section>
 
+    <!-- Services Section: Details the core offerings of GCS -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold section-heading mb-12">Our Core Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+                <!-- Service Card: Web Development -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-laptop-code"></i>
@@ -192,6 +309,7 @@
                     <p class="text-gray-600">Building responsive, user-friendly, and high-performance websites tailored to your business needs, from engaging landing pages to complex web applications.</p>
                 </div>
 
+                <!-- Service Card: App Development -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-mobile-alt"></i>
@@ -200,6 +318,7 @@
                     <p class="text-gray-600">Crafting intuitive and robust mobile applications for iOS and Android, ensuring a seamless experience for your users and a powerful presence for your brand.</p>
                 </div>
 
+                <!-- Service Card: Excel Automation -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-file-excel"></i>
@@ -208,6 +327,7 @@
                     <p class="text-gray-600">Streamlining your data processes and reporting in Excel with advanced formulas, VBA macros, and custom solutions to save time and reduce manual effort.</p>
                 </div>
 
+                <!-- Service Card: Data Analytics -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-line"></i>
@@ -216,6 +336,7 @@
                     <p class="text-gray-600">Uncovering hidden patterns, trends, and valuable insights from your raw data to support strategic decision-making and business growth.</p>
                 </div>
 
+                <!-- Service Card: Tableau Dashboards -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-bar"></i>
@@ -224,6 +345,7 @@
                     <p class="text-gray-600">Designing and developing interactive, intuitive, and visually compelling Tableau dashboards that empower users with actionable insights.</p>
                 </div>
 
+                <!-- Service Card: Power BI Dashboards -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-chart-pie"></i>
@@ -232,6 +354,7 @@
                     <p class="text-gray-600">Creating dynamic and comprehensive Power BI reports and dashboards that integrate seamlessly with your Microsoft ecosystem for robust data analysis.</p>
                 </div>
 
+                <!-- Service Card: Other Data Visualization -->
                 <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
                     <div class="text-indigo-600 text-5xl mb-4">
                         <i class="fas fa-database"></i>
@@ -244,6 +367,7 @@
         </div>
     </section>
 
+    <!-- About Us Section: Provides information about GCS with a more formal tone -->
     <section id="about" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold section-heading mb-12">About Us</h2>
@@ -261,8 +385,7 @@
         </div>
     </section>
 
-    ---
-
+    <!-- NEW SECTION: Our Team -->
     <section id="our-team">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-extrabold section-heading">Our Team</h2>
@@ -271,6 +394,7 @@
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                <!-- Team Member Card: Palak Goyal -->
                 <div class="team-member-card">
                     <h3>Palak Goyal</h3>
                     <p><strong>Title:</strong> Shopify Developer</p>
@@ -278,17 +402,118 @@
                     <p class="description">Palak is an invaluable member of our development team, bringing over five years of specialized experience as a Shopify Developer. Her deep understanding of the platform ensures that our e-commerce solutions are robust, user-friendly, and perfectly tailored to your business needs.</p>
                 </div>
 
-                </div>
+                <!-- Add more team members here by copying the 'team-member-card' div -->
+            </div>
         </div>
     </section>
-    ---
+    <!-- END NEW SECTION: Our Team -->
 
+    <!-- NEW SECTION: Palak's Client Reviews (Carousel) -->
+    <section id="palak-reviews">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold section-heading">Palak's Client Reviews</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+                Hear directly from our clients about the exceptional work and dedication Palak brings to every Shopify development project.
+            </p>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="reviewCarouselTrack">
+                    <!-- Review Card: Upgrade Impulse to Shopify V2 -->
+                    <div class="review-card">
+                        <h3>Project: Upgrade Impulse to Shopify V2</h3>
+                        <p class="client-info">Client: Pip Guyatt</p>
+                        <p class="review-text">"Palak, has great communication skills, she offers ideas & solutions to existing problems with website that are valuable, she is very knowledgeable and very easy to work with. Will hie her again"</p>
+                    </div>
+
+                    <!-- Review Card: Build a Shopify Store with Personalisation Aspects -->
+                    <div class="review-card">
+                        <h3>Project: Build a Shopify Store with Personalisation Aspects - Personalised Storybooks Preview</h3>
+                        <p class="client-info">Client: Ashley West</p>
+                        <p class="review-text">"Palak has been amazing to work with. This project has gone on for a lot longer than expected, and she stuck with me right to the end. Always had a positive attitude and wanted to make sure I was happy. There were countless revisions and questions and she always responded to me promptly. I can't imagine anyone having a bad experience working with her. Am happy to recommend!"</p>
+                    </div>
+
+                    <!-- Review Card: Website Development Needed for Small Project -->
+                    <div class="review-card">
+                        <h3>Project: Website Development Needed for Small Project</h3>
+                        <p class="client-info">Client: Janine Cygan</p>
+                        <p class="review-text">"Palak was amazing to work with! She completely everything I asked for promptly!"</p>
+                    </div>
+
+                    <!-- Review Card: Experienced Shopify developer to create a professional website for a dress rental business -->
+                    <div class="review-card">
+                        <h3>Project: Experienced Shopify developer to create a professional website for a dress rental business</h3>
+                        <p class="client-info">Client: Jeannie Hood</p>
+                        <p class="review-text">"We had an amazing experience working with Palak! Before collaborating with her, we had no experience with website development, but she made the entire process incredibly smooth and stress-free. Her clear and prompt communication ensured that we always knew what was happening and felt confident in each step of the project. From the beginning, we provided a specific brief, and Palak was not only receptive to our vision but also took on all of our feedback with enthusiasm. She worked diligently to bring our website to life, making thoughtful adjustments along the way to ensure it matched our expectations perfectly. Her professionalism, attention to detail, and willingness to accommodate our requests made this an enjoyable and seamless experience. We highly recommend Palak to anyone looking to build a website—her skills, efficiency, and dedication truly stand out!"</p>
+                    </div>
+
+                    <!-- Review Card: Shopify Expert Needed for Store Restructuring and Optimization -->
+                    <div class="review-card">
+                        <h3>Project: Shopify Expert Needed for Store Restructuring and Optimization</h3>
+                        <p class="client-info">Client: Charmaine Brown</p>
+                        <p class="review-text">"⭐️⭐️⭐️⭐️⭐️ Amazing Shopify Expert! Palak did an outstanding job optimizing and restructuring my Shopify store. She was incredibly responsive, knowledgeable, and easy to work with throughout the entire process. Her expertise helped streamline my store’s functionality and improve its overall design and user experience. I truly appreciated her attention to detail and willingness to go above and beyond to ensure everything was perfect. I highly recommend Palak to anyone looking for a skilled Shopify expert!"</p>
+                    </div>
+
+                    <!-- Review Card: Shopify Redesign Page -->
+                    <div class="review-card">
+                        <h3>Project: Shopify Redesign Page</h3>
+                        <p class="client-info">Client: Anja Edwards</p>
+                        <p class="review-text">"Worked with Palak on redesign of my entire website. She was amazing. She is very knowledgeable, was able to get everything done in a quick and efficient manner."</p>
+                    </div>
+
+                    <!-- Review Card: Shopify Website Redesign: Create a High-End Lifestyle Experience for My Tiny Home Hub -->
+                    <div class="review-card">
+                        <h3>Project: Shopify Website Redesign: Create a High-End Lifestyle Experience for My Tiny Home Hub</h3>
+                        <p class="client-info">Client: Cameron Jovan, My Tiny Home Hub</p>
+                        <p class="review-text">"Palak did an amazing job bringing my vision to life for the design of my product page. It wasn't an easy task, but she was able to comprehend it with the right guidance and execute it flawlessly and in a way that didn't leave anything additional to be desired. I would rate her a 10 out of 10!"</p>
+                    </div>
+
+                    <!-- Review Card: Rebuild Shopify website for skincare brand -->
+                    <div class="review-card">
+                        <h3>Project: Rebuild Shopify website for skincare brand</h3>
+                        <p class="client-info">Client: Mariela Perez Calderon</p>
+                        <p class="review-text">"Created a beautiful website with everything that was asked for. I recommended Palak to a friend of my as well!"</p>
+                    </div>
+
+                    <!-- Review Card: Re-design of existing Shopify store with updates -->
+                    <div class="review-card">
+                        <h3>Project: Re-design of existing Shopify store with updates</h3>
+                        <p class="client-info">Client: Dennis Rambo</p>
+                        <p class="review-text">"Attention to detail and dedication. Quick to respond to any queries, receptive to feedback, and consistently met project milestones."</p>
+                    </div>
+
+                    <!-- Review Card: Shopify enhancements - dynamic text based on tags -->
+                    <div class="review-card">
+                        <h3>Project: Shopify enhancements - dynamic text based on tags</h3>
+                        <p class="client-info">Client: Michael Roedeske, P4P Solutions GmbH</p>
+                        <p class="review-text">"Highly skilled and experiences Shopify and HTML developer. Clear communicationa and in-time delivery. We realized already several enhancements with her support."</p>
+                    </div>
+
+                    <!-- Review Card: Shopify Store Developer -->
+                    <div class="review-card">
+                        <h3>Project: Shopify Store Developer</h3>
+                        <p class="client-info">Client: Joyce Hwang</p>
+                        <p class="review-text">"I had the pleasure of working with Palak. She is great at meeting deadlines and is very responsive and flexible. High quality of work and very professional! Definitely will continue to work with her!"</p>
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation Buttons -->
+                <button class="carousel-button prev" id="prevReviewBtn">&#10094;</button>
+                <button class="carousel-button next" id="nextReviewBtn">&#10095;</button>
+            </div>
+            <!-- Carousel Dots for pagination -->
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+    <!-- END NEW SECTION: Palak's Client Reviews (Carousel) -->
+
+    <!-- Contact Section: Includes a call to action and the new custom contact form -->
     <section id="contact" class="py-16 bg-indigo-700 text-white text-center">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-extrabold mb-8">Ready to Start Your Project?</h2>
             <p class="text-xl font-light mb-10 max-w-2xl mx-auto opacity-90">
                 Let's discuss how we can help you achieve your business goals with our expert web development, app development, and data analytics services.
             </p>
+            <!-- Custom Contact Form: Replaces the Google Form iframe -->
             <div class="contact-form-container text-left">
                 <form action="https://formspree.io/f/xvgrbzeg" method="POST">
                     <div class="mb-4">
@@ -320,6 +545,7 @@
         </div>
     </section>
 
+    <!-- Footer Section: Copyright and contact information -->
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-4 text-center text-sm">
             <p>&copy; 2025 Gupta Consultancy Services (GCS). All rights reserved.</p>
@@ -330,7 +556,9 @@
         </div>
     </footer>
 
+    <!-- JavaScript for smooth scrolling and carousel functionality -->
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault(); // Prevent default anchor click behavior
@@ -341,6 +569,97 @@
                 });
             });
         });
+
+        // --- Carousel Functionality for Palak's Reviews ---
+        const carouselTrack = document.getElementById('reviewCarouselTrack');
+        const reviewCards = Array.from(carouselTrack.children);
+        const prevBtn = document.getElementById('prevReviewBtn');
+        const nextBtn = document.getElementById('nextReviewBtn');
+        const carouselDotsContainer = document.getElementById('carouselDots');
+
+        let currentIndex = 0;
+        let autoSlideInterval;
+        const slideIntervalTime = 5000; // 5 seconds
+
+        // Function to update carousel position
+        function updateCarousel() {
+            const offset = -currentIndex * 100; // Each slide is 100% width
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+            updateDots();
+        }
+
+        // Function to move to the next slide
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % reviewCards.length;
+            updateCarousel();
+        }
+
+        // Function to move to the previous slide
+        function showPrevSlide() {
+            currentIndex = (currentIndex - 1 + reviewCards.length) % reviewCards.length;
+            updateCarousel();
+        }
+
+        // Function to create and update pagination dots
+        function createDots() {
+            carouselDotsContainer.innerHTML = ''; // Clear existing dots
+            reviewCards.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoSlide(); // Reset timer on manual navigation
+                });
+                carouselDotsContainer.appendChild(dot);
+            });
+        }
+
+        // Function to update active dot
+        function updateDots() {
+            Array.from(carouselDotsContainer.children).forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Function to start automatic sliding
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(showNextSlide, slideIntervalTime);
+        }
+
+        // Function to reset automatic sliding (e.g., after manual navigation)
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Event Listeners for navigation buttons
+        prevBtn.addEventListener('click', () => {
+            showPrevSlide();
+            resetAutoSlide(); // Reset timer on manual navigation
+        });
+
+        nextBtn.addEventListener('click', () => {
+            showNextSlide();
+            resetAutoSlide(); // Reset timer on manual navigation
+        });
+
+        // Initialize carousel on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (reviewCards.length > 0) {
+                createDots(); // Create dots initially
+                updateCarousel(); // Set initial position
+                startAutoSlide(); // Start auto-sliding
+            }
+        });
+        // --- End Carousel Functionality ---
     </script>
 
 </body>
