@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gupta Consultancy Services (GCS) - Your Trusted Partner in Digital Transformation</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/GCS-Consultancy/gcs-website/e7d763e0e7c6e8bafcf393db64b9b9924bf28b46/gcs-gupta-logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base styles for the body using Inter font and a light background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light Gray from Tailwind's default color palette */
+            scroll-behavior: smooth; /* Enables smooth scrolling when clicking navigation links */
+        }
+        /* Styling for the hero section with a vibrant gradient background */
+        .hero-section {
+            background: linear-gradient(135deg, #4c51bf, #667eea); /* A blend of darker and lighter purple */
+            color: white; /* White text for contrast */
+            padding: 8rem 0; /* Ample vertical padding */
+        }
+        /* Styling for main section headings */
+        .section-heading {
+            color: #1a202c; /* Dark text for readability */
+        }
+        /* Service card styling with transitions for interactive effects */
+        .service-card:hover {
+            transform: translateY(-5px); /* Moves the card up slightly */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow */
+        }
+        /* Custom scrollbar for improved aesthetics across browsers */
+        ::-webkit-scrollbar {
+            width: 8px; /* Width of the scrollbar */
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; /* Light track color */
+            border-radius: 10px; /* Rounded corners for the track */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* Gray thumb color */
+            border-radius: 10px; /* Rounded corners for the thumb */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* Darker gray on hover */
+        }
+        /* Styling for the new custom contact form */
+        .contact-form-container {
+            max-width: 700px; /* Max width for the form itself */
+            margin: 0 auto; /* Center the form */
+            background-color: white; /* White background */
+            padding: 2.5rem; /* Padding inside the form */
+            border-radius: 0.5rem; /* Rounded corners */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+        }
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container textarea {
+            width: 100%; /* Full width inputs */
+            padding: 0.75rem; /* Padding inside inputs */
+            border: 1px solid #e2e8f0; /* Light gray border */
+            border-radius: 0.375rem; /* Slightly rounded corners for inputs */
+            margin-bottom: 1rem; /* Space below inputs */
+            background-color: #f8fafc; /* Light background for inputs */
+            font-size: 1rem; /* Standard font size */
+            color: #4a5568; /* Dark gray text */
+            outline: none; /* Remove outline on focus */
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .contact-form-container input[type="text"]:focus,
+        .contact-form-container input[type="email"]:focus,
+        .contact-form-container textarea:focus {
+            border-color: #6366f1; /* Indigo border on focus */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Light indigo shadow on focus */
+        }
+        .contact-form-container textarea {
+            min-height: 120px; /* Minimum height for textarea */
+            resize: vertical; /* Allow vertical resizing */
+        }
+        .contact-form-container button {
+            display: inline-block;
+            background-color: #4f46e5; /* Indigo button background */
+            color: white; /* White text */
+            font-weight: 700; /* Bold font */
+            padding: 0.75rem 2rem; /* Padding for button */
+            border-radius: 9999px; /* Fully rounded button */
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+        }
+        .contact-form-container button:hover {
+            background-color: #4338ca; /* Darker indigo on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        /* --- NEW CSS FOR TEAM SECTION --- */
+        #our-team {
+            padding: 6rem 1rem; /* Consistent padding with other sections */
+            background-color: #f1f5f9; /* A slightly different light gray for variety */
+            text-align: center;
+        }
+
+        #our-team .section-heading {
+            margin-bottom: 3rem; /* Space below heading */
+        }
+
+        .team-member-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            padding: 2.5rem; /* Ample padding inside card */
+            margin: 1.5rem auto; /* Center individual cards */
+            max-width: 400px; /* Max width for a single team member card */
+            text-align: center; /* Center content within the card */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid #e2e8f0; /* Light border */
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+        }
+
+        .team-member-card h3 {
+            font-size: 2em; /* Larger name */
+            font-weight: 700; /* Bold name */
+            color: #1a202c; /* Dark text */
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member-card p {
+            font-size: 1.1em;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .team-member-card p strong {
+            color: #333;
+        }
+
+        .team-member-card .description {
+            font-size: 1em;
+            color: #64748b; /* Slightly lighter gray for description */
+            margin-top: 1rem;
+        }
+
+        /* New CSS for team member image */
+        .team-member-card img {
+            width: 120px; /* Fixed width for the image */
+            height: 120px; /* Fixed height for the image */
+            border-radius: 50%; /* Make it circular */
+            object-fit: cover; /* Ensure the image covers the area without distortion */
+            margin: 0 auto 1.5rem auto; /* Center the image and add space below */
+            border: 4px solid #667eea; /* A border matching your theme */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        /* --- END NEW CSS --- */
+
+        /* --- NEW CSS FOR CLIENT REVIEWS SECTION (CAROUSEL) --- */
+        #client-reviews { /* Changed ID from palak-reviews to client-reviews */
+            padding: 6rem 1rem;
+            background-color: #e2e8f0; /* A slightly darker light gray for contrast */
+            text-align: center;
+            position: relative; /* Needed for absolute positioning of nav buttons */
+        }
+
+        #client-reviews .section-heading {
+            margin-bottom: 3rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 800px; /* Max width for the carousel itself */
+            margin: 0 auto;
+            overflow: hidden; /* Hide reviews outside the current view */
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff; /* Background for the carousel area */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+            will-change: transform; /* Optimize for animation */
+        }
+
+        .review-card {
+            min-width: 100%; /* Each card takes full width of its parent (carousel-container) */
+            box-sizing: border-box; /* Include padding/border in width */
+            padding: 2.5rem;
+            text-align: left;
+            flex-shrink: 0; /* Prevent cards from shrinking */
+            flex-grow: 0; /* Prevent cards from growing */
+            width: 100%; /* Explicitly set width to 100% */
+        }
+
+        .review-card h3 {
+            font-size: 1.6em; /* Project title */
+            font-weight: 600;
+            color: #334155; /* Darker gray for project title */
+            margin-bottom: 0.5rem;
+        }
+
+        .review-card .client-info {
+            font-size: 1em;
+            color: #64748b;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .review-card .review-text {
+            font-size: 1.05em;
+            color: #475569;
+            line-height: 1.7;
+            overflow-y: auto; /* Add scroll if text is too long */
+            max-height: 200px; /* Limit height to prevent excessive stretching */
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+            z-index: 10; /* Ensure buttons are above content */
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-button.prev {
+            left: 1rem;
+        }
+
+        .carousel-button.next {
+            right: 1rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.75rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #cbd5e1; /* Light gray dot */
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .dot.active {
+            background-color: #4c51bf; /* Indigo active dot */
+            transform: scale(1.2);
+        }
+        /* --- END NEW CSS FOR PALAK'S REVIEWS SECTION (CAROUSEL) --- */
+    </style>
+</head>
+<body>
+
+    <header class="bg-white shadow-sm py-4 fixed w-full z-10">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-gray-800 rounded-lg p-2 hover:bg-gray-100 transition duration-300">
+                <img src="https://raw.githubusercontent.com/GCS-Consultancy/gcs-website/e7d763e0e7c6e8bafcf393db64b9b9924bf28b46/gcs-gupta-logo.png" alt="GCS Logo" class="h-12 w-auto rounded-lg">
+            </a>
+            <div class="space-x-6">
+                <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Services</a>
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">About Us</a>
+                <a href="#our-team" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Our Team</a>
+                <a href="#client-reviews" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Client Reviews</a> <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300 rounded-lg p-2 hover:bg-gray-50">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in">
+                Your Trusted Partner in Digital Transformation.
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-8 opacity-90 animate-fade-in-delay">
+                Empowering businesses with innovative web, app, and data solutions.
+            </p>
+            <a href="#contact" class="inline-block bg-white text-indigo-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-50 hover:scale-105 transition duration-300 animate-slide-up">
+                Get a Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold section-heading mb-12">Our Core Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-4">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Web Development</h3>
+                    <p class="text-gray-600">Building responsive, user-friendly, and high-performance websites tailored to your business needs, from engaging landing pages to complex web applications.</p>
+                </div>
+
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">App Development</h3>
+                    <p class="text-gray-600">Crafting intuitive and robust mobile applications for iOS and Android, ensuring a seamless experience for your users and a powerful presence for your brand.</p>
+                </div>
+
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-4">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Excel Automation</h3>
+                    <p class="text-gray-600">Streamlining your data processes and reporting in Excel with advanced formulas, VBA macros, and custom solutions to save time and reduce manual effort.</p>
+                </div>
+
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Data Analytics</h3>
+                    <p class="text-gray-600">Uncovering hidden patterns, trends, and valuable insights from your raw data to support strategic decision-making and business growth.</p>
+                </div>
+
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-4">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Tableau Dashboards</h3>
+                    <p class="text-gray-600">Designing and developing interactive, intuitive, and visually compelling Tableau dashboards that empower users with actionable insights.</p>
+                </div>
+
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-4">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Power BI Dashboards</h3>
+                    <p class="text-gray-600">Creating dynamic and comprehensive Power BI reports and dashboards that integrate seamlessly with your Microsoft ecosystem for robust data analysis.</p>
+                </div>
+
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="text-indigo-600 text-5xl mb-4">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Other Data Visualization</h3>
+                    <p class="text-gray-600">Leveraging various tools and techniques to present your data clearly and aesthetically, ensuring your story is told effectively.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold section-heading mb-12">About Us</h2>
+            <div class="max-w-3xl mx-auto text-gray-700 leading-relaxed text-lg">
+                <p class="mb-6">
+                    Gupta Consultancy Services (GCS) is a distinguished firm with over 3.5 years of expertise in comprehensive data analysis, robust risk management, and cutting-edge digital solution development. Our core philosophy is anchored in the delivery of demonstrable results and profound strategic insights.
+                </p>
+                <p class="mb-6">
+                    We specialize in seamlessly integrating advanced technical capabilities with astute business understanding to yield impactful outcomes. Our extensive experience encompasses the formulation of effective risk-mitigation policies, precise identification of financial anomalies, optimization of customer conversion through innovative data visualization, and the automation of intricate data processes. We are committed to providing sophisticated solutions that drive efficiency, reduce operational expenditures, and facilitate well-informed strategic decisions.
+                </p>
+                <p>
+                    At GCS, we are dedicated to transforming complex challenges into strategic opportunities, leveraging the power of data and technology to foster sustainable growth and deliver substantial value for our esteemed clientele.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-team">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold section-heading">Our Team</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+                Our dedicated team is at the heart of everything we do, bringing expertise and passion to every project. We're proud to highlight our talented developers who are instrumental in bringing your vision to life.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                <div class="team-member-card">
+                    <img src="https://raw.githubusercontent.com/GCS-Consultancy/gcs-website/5e91058d066c78871516bfbe8d5cc7db84bbb3b4/Developer%20Dp%20Palak%20Goyal.jpg" alt="Palak Goyal" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/GCS-Consultancy/gcs-website/5e91058d066c78871516bfbe8d5cc7db84bbb3b4/Developer%20Dp%20Palak%20Goyal.jpg';" />
+                    <h3>Palak Goyal</h3>
+                    <p><strong>Title:</strong> Shopify Developer</p>
+                    <p><strong>Experience:</strong> 5+ Years</p>
+                    <p class="description">Palak is an invaluable member of our development team, bringing over five years of specialized experience as a Shopify Developer. Her deep understanding of the platform ensures that our e-commerce solutions are robust, user-friendly, and perfectly tailored to your business needs.</p>
+                </div>
+
+                </div>
+        </div>
+    </section>
+    <section id="client-reviews">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold section-heading">Client Reviews</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+                Hear directly from our clients about the exceptional work and dedication Palak brings to every Shopify development project.
+            </p>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="reviewCarouselTrack">
+                    <div class="review-card">
+                        <h3>Upgrade Impulse to Shopify V2</h3>
+                        <p class="client-info">Client: Pip Guyatt</p>
+                        <p class="review-text">"Palak, has great communication skills, she offers ideas & solutions to existing problems with website that are valuable, she is very knowledgeable and very easy to work with. Will hie her again"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Build a Shopify Store with Personalisation Aspects - Personalised Storybooks Preview</h3>
+                        <p class="client-info">Client: Ashley West</p>
+                        <p class="review-text">"Palak has been amazing to work with. This project has gone on for a lot longer than expected, and she stuck with me right to the end. Always had a positive attitude and wanted to make sure I was happy. There were countless revisions and questions and she always responded to me promptly. I can't imagine anyone having a bad experience working with her. Am happy to recommend!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Website Development Needed for Small Project</h3>
+                        <p class="client-info">Client: Janine Cygan</p>
+                        <p class="review-text">"Palak was amazing to work with! She completely everything I asked for promptly!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Experienced Shopify developer to create a professional website for a dress rental business</h3>
+                        <p class="client-info">Client: Jeannie Hood</p>
+                        <p class="review-text">"We had an amazing experience working with Palak! Before collaborating with her, we had no experience with website development, but she made the entire process incredibly smooth and stress-free. Her clear and prompt communication ensured that we always knew what was happening and felt confident in each step of the project. From the beginning, we provided a specific brief, and Palak was not only receptive to our vision but also took on all of our feedback with enthusiasm. She worked diligently to bring our website to life, making thoughtful adjustments along the way to ensure it matched our expectations perfectly. Her professionalism, attention to detail, and willingness to accommodate our requests made this an enjoyable and seamless experience. We highly recommend Palak to anyone looking to build a website—her skills, efficiency, and dedication truly stand out!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Shopify Expert Needed for Store Restructuring and Optimization</h3>
+                        <p class="client-info">Client: Charmaine Brown</p>
+                        <p class="review-text">"⭐️⭐️⭐️⭐️⭐️ Amazing Shopify Expert! Palak did an outstanding job optimizing and restructuring my Shopify store. She was incredibly responsive, knowledgeable, and easy to work with throughout the entire process. Her expertise helped streamline my store’s functionality and improve its overall design and user experience. I truly appreciated her attention to detail and willingness to go above and beyond to ensure everything was perfect. I highly recommend Palak to anyone looking for a skilled Shopify expert!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Shopify Redesign Page</h3>
+                        <p class="client-info">Client: Anja Edwards</p>
+                        <p class="review-text">"Worked with Palak on redesign of my entire website. She was amazing. She is very knowledgeable, was able to get everything done in a quick and efficient manner."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Shopify Website Redesign: Create a High-End Lifestyle Experience for My Tiny Home Hub</h3>
+                        <p class="client-info">Client: Cameron Jovan, My Tiny Home Hub</p>
+                        <p class="review-text">"Palak did an amazing job bringing my vision to life for the design of my product page. It wasn't an easy task, but she was able to comprehend it with the right guidance and execute it flawlessly and in a way that didn't leave anything additional to be desired. I would rate her a 10 out of 10!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Rebuild Shopify website for skincare brand</h3>
+                        <p class="client-info">Client: Mariela Perez Calderon</p>
+                        <p class="review-text">"Created a beautiful website with everything that was asked for. I recommended Palak to a friend of my as well!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Re-design of existing Shopify store with updates</h3>
+                        <p class="client-info">Client: Dennis Rambo</p>
+                        <p class="review-text">"Attention to detail and dedication. Quick to respond to any queries, receptive to feedback, and consistently met project milestones."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Shopify enhancements - dynamic text based on tags</h3>
+                        <p class="client-info">Client: Michael Roedeske, P4P Solutions GmbH</p>
+                        <p class="review-text">"Highly skilled and experiences Shopify and HTML developer. Clear communicationa and in-time delivery. We realized already several enhancements with her support."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <h3>Shopify Store Developer</h3>
+                        <p class="client-info">Client: Joyce Hwang</p>
+                        <p class="review-text">"I had the pleasure of working with Palak. She is great at meeting deadlines and is very responsive and flexible. High quality of work and very professional! Definitely will continue to work with her!"</p>
+                    </div>
+                </div>
+
+                <button class="carousel-button prev" id="prevReviewBtn">&#10094;</button>
+                <button class="carousel-button next" id="nextReviewBtn">&#10095;</button>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+    <section id="contact" class="py-16 bg-indigo-700 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold mb-8">Ready to Start Your Project?</h2>
+            <p class="text-xl font-light mb-10 max-w-2xl mx-auto opacity-90">
+                Let's discuss how we can help you achieve your business goals with our expert web development, app development, and data analytics services.
+            </p>
+            <div class="contact-form-container text-left">
+                <form action="https://formspree.io/f/xvgrbzeg" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required
+                               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="_replyto" placeholder="your@email.com" required
+                               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your message here..." required
+                                  class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <p class="text-xs text-indigo-200 mt-4">
+                *Please visit Formspree.io (or a similar service) to get your unique form endpoint and replace "YOUR_FORMSPREE_ENDPOINT_HERE" in the HTML.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Gupta Consultancy Services (GCS). All rights reserved.</p>
+            <p class="mt-2">Contact: <a href="mailto:gcs.consultancy.in@gmail.com" class="text-indigo-400 hover:underline">gcs.consultancy.in@gmail.com</a></p>
+            <p class="mt-1">
+                <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE_ID" target="_blank" class="text-indigo-400 hover:underline">Connect with GCS on LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+
+                // Scroll to the target section smoothly
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- Carousel Functionality for Client Reviews ---
+        const carouselTrack = document.getElementById('reviewCarouselTrack');
+        const reviewCards = Array.from(carouselTrack.children);
+        const prevBtn = document.getElementById('prevReviewBtn');
+        const nextBtn = document.getElementById('nextReviewBtn');
+        const carouselDotsContainer = document.getElementById('carouselDots');
+
+        let currentIndex = 0;
+        let autoSlideInterval;
+        const slideIntervalTime = 5000; // 5 seconds
+
+        // Function to update carousel position
+        function updateCarousel() {
+            const offset = -currentIndex * 100; // Each slide is 100% width
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+            updateDots();
+        }
+
+        // Function to move to the next slide
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % reviewCards.length;
+            updateCarousel();
+        }
+
+        // Function to move to the previous slide
+        function showPrevSlide() {
+            currentIndex = (currentIndex - 1 + reviewCards.length) % reviewCards.length;
+            updateCarousel();
+        }
+
+        // Function to create and update pagination dots
+        function createDots() {
+            carouselDotsContainer.innerHTML = ''; // Clear existing dots
+            reviewCards.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoSlide(); // Reset timer on manual navigation
+                });
+                carouselDotsContainer.appendChild(dot);
+            });
+        }
+
+        // Function to update active dot
+        function updateDots() {
+            Array.from(carouselDotsContainer.children).forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Function to start automatic sliding
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(showNextSlide, slideIntervalTime);
+        }
+
+        // Function to reset automatic sliding (e.g., after manual navigation)
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Event Listeners for navigation buttons
+        prevBtn.addEventListener('click', () => {
+            showPrevSlide();
+            resetAutoSlide(); // Reset timer on manual navigation
+        });
+
+        nextBtn.addEventListener('click', () => {
+            showNextSlide();
+            resetAutoSlide(); // Reset timer on manual navigation
+        });
+
+        // Initialize carousel on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (reviewCards.length > 0) {
+                createDots(); // Create dots initially
+                updateCarousel(); // Set initial position
+                startAutoSlide(); // Start auto-sliding
+            }
+        });
+        // --- End Carousel Functionality ---
+    </script>
+
+</body>
+</html>
